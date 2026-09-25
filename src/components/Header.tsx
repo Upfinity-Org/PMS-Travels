@@ -32,16 +32,14 @@ function HeaderBar({ overlay }: { overlay: boolean }) {
     <header className={`${position} border-b backdrop-blur-xl ${tone}`} {...(dark ? { 'data-dark': '' } : {})}>
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 lg:px-8">
         <Link to="/" className="group flex items-center gap-3" aria-label="PMS Tours and Travels home">
-          <img
-            src="/logo-mark.svg"
-            width={40}
-            height={40}
-            alt=""
-            className="size-10 transition-transform group-hover:rotate-[-12deg]"
-          />
+          {/* The logo artwork is white/gold on black, so it always sits on its own dark chip
+              regardless of whether the header itself is on a light or dark section. */}
+          <span className="flex h-11 shrink-0 items-center rounded-lg bg-dark px-2.5 transition-transform group-hover:scale-105">
+            <img src="/logo-mark.png" width={1447} height={463} alt="" className="h-6 w-auto" />
+          </span>
           <span>
             <span className="block font-display text-[15px] font-bold tracking-tight">
-              P.M.S <span className={dark ? 'font-medium text-white/70' : 'font-medium text-dark/70'}>Tours &amp; Travels</span>
+              <span className={dark ? 'font-medium text-white/70' : 'font-medium text-dark/70'}>Tours &amp; Travels</span>
             </span>
             <span className={`block text-[9px] font-semibold uppercase tracking-[.22em] ${dark ? 'text-secondary' : 'text-gold-ink'}`}>
               {SITE.tagline}

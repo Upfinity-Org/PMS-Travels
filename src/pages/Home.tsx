@@ -76,7 +76,7 @@ export function Home() {
                 to="/pricing"
                 className="inline-flex items-center justify-center gap-3 rounded-full border border-white/25 px-6 py-4 font-semibold transition hover:border-secondary hover:text-secondary"
               >
-                View price chart <ArrowUpRight size={18} aria-hidden="true" />
+                See how pricing works <ArrowUpRight size={18} aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -148,7 +148,7 @@ export function Home() {
                 Explore the fleet <ArrowUpRight size={16} aria-hidden="true" className="transition group-hover:translate-x-0.5" />
               </Link>
               <Link to="/pricing" className="group inline-flex w-fit items-center gap-2 border-b border-primary pb-1 text-sm font-bold text-primary">
-                See all rates <ArrowUpRight size={16} aria-hidden="true" className="transition group-hover:translate-x-0.5" />
+                See pricing <ArrowUpRight size={16} aria-hidden="true" className="transition group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>

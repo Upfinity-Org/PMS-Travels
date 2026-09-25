@@ -12,10 +12,10 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:px-8">
         <div>
           <Link to="/" className="flex items-center gap-3" aria-label="PMS Tours and Travels home">
-            <img src="/logo-mark.svg" width={40} height={40} alt="" className="size-10" loading="lazy" />
-            <span className="font-display text-[15px] font-bold tracking-tight">
-              P.M.S <span className="font-medium text-dark/70">Tours &amp; Travels</span>
+            <span className="flex h-11 shrink-0 items-center rounded-lg bg-dark px-2.5">
+              <img src="/logo-mark.png" width={1447} height={463} alt="" className="h-6 w-auto" loading="lazy" />
             </span>
+            <span className="font-display text-[15px] font-bold tracking-tight text-dark/70">Tours &amp; Travels</span>
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
             Local and outstation car rentals with driver, thoughtfully arranged across Tamil Nadu and South India.
@@ -58,7 +58,7 @@ export function Footer() {
             ))}
             <li>
               <Link to="/pricing" className={linkClass}>
-                Rate card
+                Pricing
               </Link>
             </li>
           </ul>

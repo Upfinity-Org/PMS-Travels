@@ -68,7 +68,7 @@ export function About() {
               </Link>{' '}
               or check the{' '}
               <Link to="/pricing" className="font-semibold text-primary underline">
-                rate card
+                pricing page
               </Link>
               .
             </p>

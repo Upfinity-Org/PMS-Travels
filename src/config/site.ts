@@ -22,9 +22,6 @@ export const SITE = {
    */
   address: { street: '', locality: '', region: 'Tamil Nadu', postalCode: '', country: 'IN' },
   areaServed: ['Tamil Nadu', 'South India'],
-  priceRange: '₹₹',
-  /** Shown on the rate card. Update whenever fares change. */
-  ratesUpdated: 'September 2026',
   /** Used as <lastmod> in sitemap.xml – bump it when you make a meaningful content change. */
   contentUpdated: '2026-09-21',
   developer: { name: 'Upfinity', url: 'https://upfinity.netlify.app/' },

@@ -2,9 +2,9 @@ import { ArrowUpRight, Check, Phone, UsersRound } from 'lucide-react';
 import { Link, useParams } from 'react-router';
 import { CtaBand } from '../components/CtaBand';
 import { PageHero } from '../components/PageHero';
-import { Photo } from '../components/Photo';
+import { VehiclePhoto } from '../components/Photo';
 import { SITE } from '../config/site';
-import { fleet, getCar, localRateLabel, outstationRateLabel } from '../content/fleet';
+import { fleet, getCar } from '../content/fleet';
 import { services } from '../content/services';
 import { Seo } from '../seo/Seo';
 import { breadcrumbSchema, businessSchema, vehicleServiceSchema } from '../seo/schema';
@@ -37,8 +37,10 @@ export function FleetDetail() {
       <section className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_.7fr] lg:gap-16">
           <div>
-            <div className="relative aspect-[16/9] overflow-hidden bg-dark">
-              <Photo id={car.photo} alt={car.imageAlt} widths={[640, 960, 1280]} sizes="(min-width: 1024px) 55vw, 100vw" priority className="absolute inset-0 h-full w-full object-cover" />
+            {/* A studio cutout on a near-white background, shown whole (object-contain) on a
+                matching light panel rather than cropped to fill the frame. */}
+            <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-[#F1ECE3] p-10">
+              <VehiclePhoto slug={car.slug} alt={car.imageAlt} sizes="(min-width: 1024px) 55vw, 100vw" priority className="h-full w-full object-contain" />
             </div>
 
             <div className="prose-copy mt-10">
@@ -97,16 +99,8 @@ export function FleetDetail() {
                 </dd>
               </div>
               <div className="py-3">
-                <dt className="text-xs font-semibold text-muted-foreground">Local package</dt>
-                <dd className="mt-1 font-display text-lg font-semibold text-primary">{localRateLabel(car)}</dd>
-              </div>
-              <div className="py-3">
-                <dt className="text-xs font-semibold text-muted-foreground">Outstation</dt>
-                <dd className="mt-1 font-display text-lg font-semibold text-primary">{outstationRateLabel(car)}</dd>
-              </div>
-              <div className="py-3">
-                <dt className="text-xs font-semibold text-muted-foreground">Notes</dt>
-                <dd className="mt-1 text-sm">{car.driver}. Final quotes vary with route, dates, tolls and duration.</dd>
+                <dt className="text-xs font-semibold text-muted-foreground">Pricing</dt>
+                <dd className="mt-1 text-sm">Contact our team for a quote tailored to your route, dates and group size.</dd>
               </div>
             </dl>
             <Link
@@ -119,7 +113,7 @@ export function FleetDetail() {
               <Phone size={16} aria-hidden="true" /> {SITE.phone.display}
             </a>
             <Link to="/pricing" className="mt-4 block text-center text-sm font-semibold text-primary hover:underline">
-              See the full rate card
+              How pricing works
             </Link>
           </aside>
         </div>

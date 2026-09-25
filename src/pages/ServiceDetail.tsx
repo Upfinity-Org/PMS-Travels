@@ -2,7 +2,7 @@ import { ArrowUpRight, Check } from 'lucide-react';
 import { Link, useParams } from 'react-router';
 import { CtaBand } from '../components/CtaBand';
 import { PageHero } from '../components/PageHero';
-import { fleet, getCar, localRateLabel } from '../content/fleet';
+import { fleet, getCar } from '../content/fleet';
 import { getService, services } from '../content/services';
 import { Seo } from '../seo/Seo';
 import { breadcrumbSchema, businessSchema, serviceSchema } from '../seo/schema';
@@ -76,13 +76,13 @@ export function ServiceDetail() {
                       </span>
                       <ArrowUpRight size={18} className="shrink-0 text-primary transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                     </span>
-                    <span className="mt-3 block text-sm font-semibold text-primary">{localRateLabel(car)}</span>
+                    <span className="mt-3 block text-sm font-semibold text-primary">Ask for a quote</span>
                   </Link>
                 </li>
               ))}
             </ul>
             <Link to="/pricing" className="mt-5 inline-block text-sm font-semibold text-primary hover:underline">
-              See the full rate card
+              How pricing works
             </Link>
           </aside>
         </div>

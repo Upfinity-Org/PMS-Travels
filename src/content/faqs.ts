@@ -2,16 +2,20 @@ export type Faq = { q: string; a: string };
 
 export const rateFaqs: Faq[] = [
   {
-    q: 'How are your rates calculated?',
-    a: 'Local trips use a package price for a set number of hours (for example 8 hours). Outstation trips are charged per kilometre. Driver allowance is extra, and the final quote can vary with route, dates, tolls and trip duration.',
+    q: "Why isn't pricing listed on the website?",
+    a: 'Fares depend on the vehicle, route, dates and trip duration, so a single published number would rarely match your actual trip. Contacting us directly gets you an accurate quote instead of a misleading estimate.',
   },
   {
-    q: 'Will I know the fare before I travel?',
-    a: 'Yes. Our team confirms the vehicle and the fare with you before you go, so there are no surprises on the day.',
+    q: 'How do I get a quote?',
+    a: 'Call or WhatsApp us, or send an enquiry through the contact form with your route, dates and number of guests. Our team will suggest a vehicle and confirm a clear fare before you travel.',
   },
   {
-    q: 'Are the rates on this page final?',
-    a: 'No. They are starting rates by vehicle category. Call or message us for a quote on your exact route and dates.',
+    q: 'How quickly will I hear back?',
+    a: 'Usually within a few minutes during the day. Our travel support runs 24 hours a day, 7 days a week, so even late enquiries get a timely reply.',
+  },
+  {
+    q: 'Will the quoted fare change on the day?',
+    a: 'No. We confirm the vehicle and fare with you before you travel, so there are no surprises once you are on the road.',
   },
 ];
 

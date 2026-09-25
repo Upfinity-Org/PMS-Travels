@@ -20,8 +20,6 @@ export function businessSchema(): object {
       'Local and outstation car, MPV, SUV and Tempo Traveller rentals with driver across Tamil Nadu and South India.',
     telephone: SITE.phone.tel,
     ...(SITE.email ? { email: SITE.email } : {}),
-    priceRange: SITE.priceRange,
-    currenciesAccepted: 'INR',
     areaServed: SITE.areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
     ...(hasAddress
       ? {
@@ -107,20 +105,6 @@ export function vehicleServiceSchema(car: FleetCar): object {
     url: absoluteUrl(`/fleet/${car.slug}`),
     provider: { '@id': BUSINESS_ID },
     areaServed: SITE.areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
-    offers: [
-      {
-        '@type': 'Offer',
-        priceCurrency: 'INR',
-        price: car.local.from,
-        description: `Starting rate for a local package (${car.local.unit}). ${car.driver}.`,
-      },
-      {
-        '@type': 'Offer',
-        priceCurrency: 'INR',
-        price: car.outstation.from,
-        description: `Starting outstation rate per ${car.outstation.unit}. ${car.driver}.`,
-      },
-    ],
   };
 }
 

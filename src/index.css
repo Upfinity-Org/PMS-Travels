@@ -7,14 +7,6 @@
 @import '@fontsource/poppins/latin-500.css';
 @import '@fontsource/poppins/latin-600.css';
 @import '@fontsource/poppins/latin-700.css';
-/* latin-ext carries the rupee sign (₹); the browser only downloads these files when a ₹ is on the page. */
-@import '@fontsource/inter/latin-ext-400.css';
-@import '@fontsource/inter/latin-ext-500.css';
-@import '@fontsource/inter/latin-ext-600.css';
-@import '@fontsource/inter/latin-ext-700.css';
-@import '@fontsource/poppins/latin-ext-500.css';
-@import '@fontsource/poppins/latin-ext-600.css';
-@import '@fontsource/poppins/latin-ext-700.css';
 @import 'tailwindcss';
 
 @theme {

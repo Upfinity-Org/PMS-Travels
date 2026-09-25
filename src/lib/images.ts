@@ -6,9 +6,6 @@
 export const PHOTOS = {
   temple: 'photo-1582510003544-4d00b7f74220',
   hills: 'photo-1631546099508-f0fddd188361',
-  sedan: 'photo-1503376780353-7e6692767b70',
-  suv: 'photo-1542362567-b07e54358753',
-  traveller: 'photo-1544620347-c4fd4a3d5957',
 } as const;
 
 export const photoUrl = (id: string, width: number, quality = 75): string =>
