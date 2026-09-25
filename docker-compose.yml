@@ -1,0 +1,36 @@
+# One-command local stack: FastAPI backend on :8000, built-and-prerendered frontend served on :8080.
+# Usage:
+#   1. cp backend/.env.example backend/.env   and fill in real SMTP details
+#   2. cp .env.example .env                   and set VITE_SITE_URL (use http://localhost:8080 locally)
+#   3. docker compose up --build
+#
+# This is for trying the whole stack in one place, e.g. on a VPS. It is not required for
+# development — `pnpm dev` (frontend) + `uvicorn app.main:app --reload` (backend) is faster to
+# iterate with. See README.md for both workflows and for real deployment guidance.
+services:
+  backend:
+    build: ./backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - '8000:8000'
+    volumes:
+      - backend-data:/app/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_SITE_URL: ${VITE_SITE_URL:-http://localhost:8080}
+        VITE_GOOGLE_SITE_VERIFICATION: ${VITE_GOOGLE_SITE_VERIFICATION:-}
+        VITE_PUBLIC_EMAIL: ${VITE_PUBLIC_EMAIL:-}
+    ports:
+      - '8080:80'
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend-data:

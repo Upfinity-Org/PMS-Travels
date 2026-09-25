@@ -1,0 +1,10 @@
+{
+  "description": "Discover premium vehicle rentals and tailored tours with a user-friendly interface, ensuring safe, comfortable, and reliable travel experiences across India.",
+  "robots": {
+    "index": true
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

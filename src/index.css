@@ -1,0 +1,63 @@
+/* Fonts are self-hosted (npm @fontsource) so pages render without a round-trip to Google Fonts. */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap'); */
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-700.css';
+/* latin-ext carries the rupee sign (₹); the browser only downloads these files when a ₹ is on the page. */
+@import '@fontsource/inter/latin-ext-400.css';
+@import '@fontsource/inter/latin-ext-500.css';
+@import '@fontsource/inter/latin-ext-600.css';
+@import '@fontsource/inter/latin-ext-700.css';
+@import '@fontsource/poppins/latin-ext-500.css';
+@import '@fontsource/poppins/latin-ext-600.css';
+@import '@fontsource/poppins/latin-ext-700.css';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
+  --color-background: #F8F7F4;
+  --color-foreground: #1A1A1A;
+  --color-primary: #A83226;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #D49E35;
+  --color-secondary-foreground: #1A1A1A;
+  --color-muted: #EAE6DF;
+  /* slightly darker than the original #6D6964 so small text keeps 4.5:1 contrast on the sand-coloured sections */
+  --color-muted-foreground: #5E5A55;
+  --color-dark: #1A1A1A;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1A1A1A;
+  /* gold that is dark enough to read as text on the light backgrounds (secondary is only for dark backgrounds) */
+  --color-gold-ink: #7A5606;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  ::selection { background: #D49E35; color: #1A1A1A; }
+  :focus-visible { outline: 2px solid #A83226; outline-offset: 3px; }
+  .on-dark :focus-visible, [data-dark] :focus-visible { outline-color: #D49E35; }
+  main:focus { outline: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  }
+}
+
+@layer components {
+  .eyebrow { @apply text-[11px] font-bold uppercase tracking-[.18em] text-primary; }
+  .route-line::before, .route-line::after { content: ''; position: absolute; left: 50%; width: 9px; height: 9px; border-radius: 9999px; background: #D49E35; transform: translateX(-50%); box-shadow: 0 0 0 6px rgba(212,158,53,.12); }
+  .route-line::before { top: 18%; }
+  .route-line::after { bottom: 18%; }
+  .skip-link { @apply fixed left-3 top-3 z-[100] -translate-y-24 rounded-md bg-dark px-4 py-2.5 text-sm font-semibold text-white transition-transform focus:translate-y-0; }
+  /* text-secondary (gold) is only legible on dark backgrounds; this is its light-background twin */
+  .eyebrow-gold { @apply text-[11px] font-bold uppercase tracking-[.16em] text-gold-ink; }
+  .prose-copy { @apply max-w-prose space-y-5 text-[15px] leading-7 text-muted-foreground sm:text-base sm:leading-8; }
+  .field { @apply block w-full rounded-none border border-black/20 bg-white px-4 py-3 text-[15px] text-foreground placeholder:text-muted-foreground/70 transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25; }
+  .field[aria-invalid='true'] { @apply border-primary ring-2 ring-primary/20; }
+}
