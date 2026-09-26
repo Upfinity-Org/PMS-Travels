@@ -69,6 +69,30 @@ export function Contact() {
               </a>
             </div>
 
+            <div className="mt-7 border-t border-black/10 pt-5">
+              <p className="text-xs font-bold uppercase tracking-[.14em] text-muted-foreground">Our team</p>
+              <ul className="mt-3 space-y-3">
+                <li className="flex items-center justify-between gap-3">
+                  <span className="text-sm">
+                    <span className="font-semibold text-foreground">{SITE.team.owner.name}</span>{' '}
+                    <span className="text-muted-foreground">· {SITE.team.owner.role}</span>
+                  </span>
+                  <a href={`tel:${SITE.phone.tel}`} className="text-sm font-semibold text-primary hover:underline">
+                    {SITE.phone.display}
+                  </a>
+                </li>
+                <li className="flex items-center justify-between gap-3">
+                  <span className="text-sm">
+                    <span className="font-semibold text-foreground">{SITE.team.manager.name}</span>{' '}
+                    <span className="text-muted-foreground">· {SITE.team.manager.role}</span>
+                  </span>
+                  <a href={`tel:${SITE.team.manager.phone.tel}`} className="text-sm font-semibold text-primary hover:underline">
+                    {SITE.team.manager.phone.display}
+                  </a>
+                </li>
+              </ul>
+            </div>
+
             <ul className="mt-7 space-y-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <Clock3 size={17} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />

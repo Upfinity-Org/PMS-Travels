@@ -150,8 +150,11 @@ want to publish indicative numbers, that's the place to add them back.
 
 The build output (`dist/`) is a plain static site — any static host works:
 
-- **Netlify / Vercel / GitHub Pages**: point the build command at `pnpm build`, publish directory
-  `dist`. 404.html is picked up automatically by all three.
+- **Netlify**: a `netlify.toml` at the repo root already sets the build command (`pnpm build`),
+  publish directory (`dist`) and Node version. See "Publishing on Netlify" below for the full
+  walkthrough, including wiring up the backend.
+- **Vercel / GitHub Pages**: point the build command at `pnpm build`, publish directory `dist`.
+  404.html is picked up automatically by both.
 - **S3 + CloudFront**: upload `dist/`, set the CloudFront custom error response for 404 to return
   `/404.html` with a 404 status.
 - **Your own server (nginx)**: see `nginx.conf` at the repo root for a working config (also used by
@@ -160,6 +163,28 @@ The build output (`dist/`) is a plain static site — any static host works:
 The backend (FastAPI) is a separate small service — deploy it anywhere that runs Python
 (a VPS, a container platform, etc.) and point your static host's `/api/*` requests at it (reverse
 proxy, or a platform's own rewrite rules). See `backend/README.md`.
+
+### Publishing on Netlify
+
+Netlify only serves static files (and short-lived functions) — it cannot run the FastAPI backend
+as a persistent process — so deploy the backend first, then the frontend:
+
+1. **Deploy the backend somewhere that runs Python** (Render, Railway, Fly.io, a VPS — anywhere
+   `uvicorn app.main:app` can run continuously). Set its environment variables from
+   `backend/.env.example`, and note the public URL it gives you (e.g.
+   `https://pms-backend.onrender.com`).
+2. **Edit `netlify.toml`**: replace the placeholder redirect target
+   (`https://YOUR-BACKEND-URL.onrender.com/api/:splat`) with your real backend URL from step 1.
+3. **Push the repo to GitHub/GitLab/Bitbucket**, then in Netlify: "Add new site" → "Import an
+   existing project" → pick the repo. Netlify reads `netlify.toml` automatically, so the build
+   command and publish directory are already set.
+4. **Set environment variables** in Netlify (Site configuration → Environment variables):
+   `VITE_SITE_URL` (your real Netlify/custom domain, no trailing slash) and, once you have it,
+   `VITE_GOOGLE_SITE_VERIFICATION`.
+5. **Deploy**, then update the backend's `CORS_ALLOW_ORIGINS` to include the Netlify URL, and
+   redeploy the backend so it accepts requests from it.
+6. Once it's working, add a custom domain under Site configuration → Domain management, and update
+   `VITE_SITE_URL` to match.
 
 ## Checks
 

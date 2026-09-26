@@ -37,7 +37,7 @@ export const services: Service[] = [
     ],
     goodToKnow: [
       'Share the temples on your list and we will help sequence them.',
-      'Multi-day circuits are quoted per kilometre; driver allowance is extra.',
+      'Multi-day circuits are quoted as a package once we know your route.',
       'Tolls and trip duration can change the final quote, and we confirm it before you go.',
     ],
     vehicles: ['mpv-suv', 'tempo-traveller', 'sedans'],
@@ -141,7 +141,7 @@ export const services: Service[] = [
     ],
     goodToKnow: [
       'Start with a rough list of places; we will help with sequencing and timing.',
-      'Multi-day trips are quoted on outstation per-kilometre rates plus driver allowance.',
+      'Multi-day trips are quoted as a package once we know your route and dates.',
       'Route, dates, tolls and trip duration all shape the final quote.',
     ],
     vehicles: ['mpv-suv', 'sedans', 'tempo-traveller'],

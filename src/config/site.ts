@@ -4,6 +4,9 @@
  */
 const rawUrl = import.meta.env.VITE_SITE_URL || 'http://localhost:8443';
 
+/** Typed as plain strings (not narrowed to literals) so `hasAddress` below stays a real runtime check. */
+type Address = { street: string; locality: string; region: string; postalCode: string; country: string };
+
 export const SITE = {
   name: 'P.M.S Tours & Travels',
   shortName: 'PMS Tours & Travels',
@@ -20,8 +23,16 @@ export const SITE = {
    * Fill these in to publish your address in the footer/contact page and in Google structured data.
    * Leave `locality` empty to keep the address out entirely (nothing is invented for you).
    */
-  address: { street: '', locality: '', region: 'Tamil Nadu', postalCode: '', country: 'IN' },
+  address: { street: '', locality: 'Perungudi', region: 'Tamil Nadu', postalCode: '', country: 'IN' } as Address,
   areaServed: ['Tamil Nadu', 'South India'],
+  /**
+   * Named contacts, shown on the contact page. The owner uses the main phone number above; the
+   * manager has a separate direct line.
+   */
+  team: {
+    owner: { name: 'Sanjay', role: 'Owner' },
+    manager: { name: 'Sundaresan', role: 'Manager', phone: { display: '+91 93840 31361', tel: '+919384031361' } },
+  },
   /** Used as <lastmod> in sitemap.xml – bump it when you make a meaningful content change. */
   contentUpdated: '2026-09-21',
   developer: { name: 'Upfinity', url: 'https://upfinity.netlify.app/' },

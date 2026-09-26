@@ -54,8 +54,8 @@ export function About() {
           </div>
           <div className="prose-copy">
             <p>
-              We rent sedans, MPVs, SUVs and group travellers with an experienced driver. For plans within the city, a local package covers a set number of
-              hours. For longer journeys, outstation rates are charged per kilometre, with driver allowance extra.
+              We rent sedans, MPVs, SUVs and group travellers with an experienced driver, for plans that stay within the city and for journeys that run
+              much further. Whatever the trip, we confirm the vehicle and the fare with you before you travel.
             </p>
             <p>
               Our travel support runs around the clock, so you can reach a real person when plans change. Browse the{' '}

@@ -1,0 +1,19 @@
+# Netlify build + deploy config for the frontend. The backend (FastAPI, for the contact form)
+# is NOT hosted here — Netlify only serves static files and short-lived functions, not a
+# long-running Python process — so it must be deployed separately (see README.md > Deployment).
+# Once you have that backend's URL, replace the placeholder below.
+
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Forwards contact-form requests from the deployed site to your separately-hosted FastAPI backend.
+# Replace the URL below with your real backend URL once it's deployed (see README.md > Deployment).
+[[redirects]]
+  from = "/api/*"
+  to = "https://YOUR-BACKEND-URL.onrender.com/api/:splat"
+  status = 200
+  force = true
