@@ -61,11 +61,18 @@ See `.env.example` for every variable with inline explanations. The important on
 
 ## Deploying
 
+- **Railway** (recommended, see root `README.md` > "Publishing on Netlify" for the full walkthrough
+  alongside the frontend): connect this repo, set the service's root directory to `backend`.
+  Railway auto-detects `backend/Procfile` and runs
+  `uvicorn app.main:app --host 0.0.0.0 --port $PORT`. Add the environment variables from
+  `.env.example` under the service's Variables tab, then generate a public domain under
+  Settings → Networking.
 - **Docker**: `docker build -t pms-backend .` then run with your `.env` file, or use the root
   `docker-compose.yml` which wires this up alongside the frontend.
-- **Anywhere that runs a Python process**: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
-  behind a reverse proxy (nginx, Caddy, your platform's own proxy) that forwards `/api/*` to it.
-  Set `VITE_SITE_URL`'s origin as the deployed API's `CORS_ALLOW_ORIGINS`.
+- **Anywhere else that runs a Python process** (Render, Fly.io, a VPS): `uvicorn app.main:app
+  --host 0.0.0.0 --port 8000` behind a reverse proxy (nginx, Caddy, your platform's own proxy)
+  that forwards `/api/*` to it. Set `VITE_SITE_URL`'s origin as the deployed API's
+  `CORS_ALLOW_ORIGINS`.
 
 The enquiry backup log (`backend/data/enquiries.jsonl`) is append-only local storage, not a
 database — for meaningful production volume, swap `app/storage.py`'s `save_enquiry` for a real

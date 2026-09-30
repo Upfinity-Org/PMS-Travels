@@ -169,12 +169,13 @@ proxy, or a platform's own rewrite rules). See `backend/README.md`.
 Netlify only serves static files (and short-lived functions) — it cannot run the FastAPI backend
 as a persistent process — so deploy the backend first, then the frontend:
 
-1. **Deploy the backend somewhere that runs Python** (Render, Railway, Fly.io, a VPS — anywhere
-   `uvicorn app.main:app` can run continuously). Set its environment variables from
-   `backend/.env.example`, and note the public URL it gives you (e.g.
-   `https://pms-backend.onrender.com`).
+1. **Deploy the backend on Railway** (or any host that runs Python continuously — Render, Fly.io,
+   a VPS). Railway picks up `backend/Procfile` automatically, so it knows to run
+   `uvicorn app.main:app --host 0.0.0.0 --port $PORT`. Set its environment variables from
+   `backend/.env.example`, generate a public domain for the service (Settings → Networking →
+   Generate Domain), and note the URL it gives you (e.g. `https://pms-backend.up.railway.app`).
 2. **Edit `netlify.toml`**: replace the placeholder redirect target
-   (`https://YOUR-BACKEND-URL.onrender.com/api/:splat`) with your real backend URL from step 1.
+   (`https://YOUR-BACKEND-URL.up.railway.app/api/:splat`) with your real backend URL from step 1.
 3. **Push the repo to GitHub/GitLab/Bitbucket**, then in Netlify: "Add new site" → "Import an
    existing project" → pick the repo. Netlify reads `netlify.toml` automatically, so the build
    command and publish directory are already set.

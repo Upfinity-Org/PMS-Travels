@@ -233,11 +233,11 @@ export function Home() {
               <a href={`tel:${SITE.phone.tel}`} className="mt-4 font-display text-3xl font-bold tracking-[-.04em] transition hover:text-primary sm:text-4xl">
                 {SITE.phone.display}
               </a>
-              <p className="mt-2 text-sm text-dark/75">Call our team for an instant quote or trip advice.</p>
+              <p className="mt-2 text-sm text-dark/75">Contact Us for an instant quote or trip advice.</p>
               <div className="mt-9 space-y-3">
                 <a href={`tel:${SITE.phone.tel}`} className="flex items-center justify-between border-b border-dark/20 pb-3 font-semibold">
                   <span className="flex items-center gap-3">
-                    <Phone size={18} aria-hidden="true" /> Call our team
+                    <Phone size={18} aria-hidden="true" /> Contact Us
                   </span>
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </a>

@@ -35,7 +35,7 @@ export const SITE = {
   },
   /** Used as <lastmod> in sitemap.xml – bump it when you make a meaningful content change. */
   contentUpdated: '2026-09-21',
-  developer: { name: 'Upfinity', url: 'https://upfinityteam.netlify.app/' },
+  developer: { name: 'Upfinity', url: 'https://upfinity.netlify.app/' },
 } as const;
 
 export const absoluteUrl = (path = '/'): string => (path === '/' ? `${SITE.url}/` : `${SITE.url}${path}`);

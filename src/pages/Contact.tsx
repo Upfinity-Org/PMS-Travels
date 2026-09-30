@@ -51,7 +51,7 @@ export function Contact() {
             <div className="mt-7 border-t border-black/10">
               <a href={`tel:${SITE.phone.tel}`} className={row}>
                 <span className="flex items-center gap-3">
-                  <Phone size={18} aria-hidden="true" /> Call our team
+                  <Phone size={18} aria-hidden="true" /> Contact Us
                 </span>
                 <ArrowUpRight size={17} aria-hidden="true" />
               </a>

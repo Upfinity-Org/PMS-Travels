@@ -59,7 +59,7 @@ function HeaderBar({ overlay }: { overlay: boolean }) {
           href={`tel:${SITE.phone.tel}`}
           className="hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#c53a2c] lg:flex"
         >
-          <Phone size={15} aria-hidden="true" /> Call our team
+          <Phone size={15} aria-hidden="true" /> Contact Us
         </a>
 
         <button
